@@ -1,6 +1,5 @@
 <?php
 	$name=$_POST['name'];
-	$password=$_POST['password'];
 	//get info from sql
 	$conn = mysqli_connect('localhost', 'root', '123','parknshop');
 	if (!$conn) {
@@ -13,13 +12,18 @@
 		// output data of each row
 		while($row = mysqli_fetch_assoc($result)) {
 			if ( $row["name"]==$name ){
-				$url='Location: Main.php?name='.$name;
+				$url='Location: ../UI/Main.php?name='.$name;
 				header($url);
+				session_start();
+				// store session data
+				$_SESSION['username']=$name;
+				mysqli_close($conn);
 				exit;
 			}
 		}
 	}
-	header("Location: login.php?error=1");
+	header("Location: ../UI/login.php?error=1");
+	mysqli_close($conn);
 	exit;
 	
 	
@@ -34,9 +38,5 @@
 // 		echo 'fail to login';
 // 		exit;
 // 	}
-	
-	
-	
-	
-	mysqli_close($conn);
+
 ?>

@@ -1,17 +1,20 @@
 
 <html>
 <head>
+
 <title>
 	hello
 </title>
-
+<?php
+	require_once ("head.php");
+?>
 <script type="text/javascript">
 	var re='';	
 	
 	function check() {
 		re=getXmlHttpObject();
 		if (re) {
-			var url="CheckInput.php";
+			var url="../OP/CheckInput.php";
 // 			alert(url);
 			var data="username="+document.getElementById("n1").value+"&op=login";
 // 			alert(data);
@@ -50,21 +53,22 @@
 </script>
 
 </head>
-<body>
+<body >
+<div align='center'>
 	<h1>Login</h1>
-	<form action="login_p.php" method="post">
+	<form action="../OP/login_p.php" method="post">
 	Nickname:&nbsp;
 	<input type="text"  name="name" style="width:130px;" id="n1" onkeyup="check()">
-	<!--
-	<input type="button" onclick="check()" value="click">
-	-->
-	<input type="text" style="border:none;color:red" size="7" id="hide">
-	<br>
+	</br>
+	<input type="text" style="color:red;background: transparent;border:none;" size="7" id="hide">
+	</br>
 	Password:&nbsp;&nbsp;
-	<input type="password" name="password" style="width:130px;"  ><br>
+	<input type="password" name="password" style="width:130px;"  ></br></br>
 	Submit:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<input type="submit"  style="color:blue;width:130px;" value="login">
-	<a href="register.php" style="color:red;width:60px;background:pink">Go register!</a>
+	<button type="submit"  style="background: url(../icon/login-button.jpg);height:30px;width:130px;background-size:cover;align:center; " >
+	</button>
+	</br></br>
+	
 	<br>
 	</form>
 <?php
@@ -82,6 +86,7 @@
 	
 
 ?>
+</div>
 </body>
 
 

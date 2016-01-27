@@ -1,0 +1,10 @@
+@CHARSET "UTF-8";
+
+body {
+	background-image:url(../icon/web-background4.jpg);
+	background-repeat:repeat;
+   	width:100%;
+   	height:100%;
+}
+
+
